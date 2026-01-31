@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cab-benchmark"
+version = "2.0.0"
+description = "Christian AI Benchmark - Evaluating AI alignment with Christian faith"
+readme = "README.md"
+license = {text = "CC-BY-SA-4.0"}
+requires-python = ">=3.9"
+authors = [
+    {name = "GoldRock AI", email = "research@solideogloria.ai"}
+]
+keywords = [
+    "benchmark",
+    "ai",
+    "christianity",
+    "theology",
+    "evaluation",
+    "llm"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "numpy>=1.21.0",
+    "pandas>=1.3.0",
+    "openai>=1.0.0",
+    "anthropic>=0.18.0",
+    "tqdm>=4.62.0",
+    "click>=8.0.0",
+    "jsonschema>=4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=3.0.0",
+    "black>=22.0.0",
+    "isort>=5.10.0",
+]
+viz = [
+    "matplotlib>=3.5.0",
+    "seaborn>=0.11.0",
+]
+
+[project.urls]
+Homepage = "https://SoliDeoGloria.ai"
+Repository = "https://github.com/GoldRockAI/cab-benchmark"
+Documentation = "https://github.com/GoldRockAI/cab-benchmark/docs"
+
+[project.scripts]
+cab-evaluate = "cab_benchmark.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cab_benchmark*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.isort]
+profile = "black"
